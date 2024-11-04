@@ -16,3 +16,12 @@ class OrderController(private val orderService: OrderService) {
 			return ResponseEntity.ok(order)
 		}
 		
+		@GetMapping
+		fun getAllOrders(): ResponseEntity<List<Order>> {
+			return ResponseEntity.ok(orderService.getAllOrders())
+		}
+		
+		@GetMapping("/{id}")
+		fun getOrderById(@PathVariable id: Long): ResponseEntity<Order> {
+			return orderService.getOrderById(id)?.let {ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build()
+		}
