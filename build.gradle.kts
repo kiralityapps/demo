@@ -14,6 +14,8 @@ java {
 	}
 }
 
+mainClassName = "com.amex_teksystems.demo.DemoApplication"
+
 repositories {
 	mavenCentral()
 }

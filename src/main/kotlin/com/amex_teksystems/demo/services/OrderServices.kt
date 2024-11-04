@@ -13,6 +13,9 @@ class OrderService {
 	private val orders = mutableMapOf<Long, Order>()
 	private var currentId = 1L
 	
+	fun getOrderById(id: Long): Order? = orders[id]
+	
+	fun getAllOrders(): List<Order> = orders.values.toList()	
 	
 	fun createOrder(items: List<Item>): Order {
 		val totalCost = calculateCostWithOffers(items)     //items.sumOf { (prices[it.name.lowercase()] ?: 0.0) * it.quantity }

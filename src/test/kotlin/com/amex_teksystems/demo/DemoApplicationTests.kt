@@ -43,5 +43,23 @@ class DemoApplicationTests {
 		val order = orderService.createOrder(items)
 		assertEquals(1.70, order.totalCost)
 	}
+	
+	@Test
+	fun 'test get by id'() {
+		val items = listOf(Item("apple", 3))
+		val order = orderService.createOrder(items)
+		val retrievedOrder = orderService.getOrderById(order.id)		
+		assertEquals(order, retrievedOrder)
+	}
+	
+	@Test
+	fun 'test get all orders'() {
+		val items1 = listOf(Item("apple", 3))
+		val items2 = listOf(Item("Orange", 3))
+		orderService.createOrder(items1)
+		orderService.createOrder(items2)
+		val allOrders = orderService.getAllOrders()
+		assertEquals(2, allOrders.size)
+	}
 
 }
