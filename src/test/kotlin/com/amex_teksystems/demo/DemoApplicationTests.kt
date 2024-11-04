@@ -18,9 +18,9 @@ class DemoApplicationTests {
 	
 	@Test
 	fun 'test order create valid items'() {
-		val items = listOf(Item("apple", 2), Item("orange", 4))
+		val items = listOf(Item("apple", 1), Item("orange", 1))
 		val order = orderService.createOrder(items)
-		assertEquals(2.20, order.totalCost)
+		assertEquals(0.85, order.totalCost)
 	}
 	
 	@Test
@@ -35,6 +35,13 @@ class DemoApplicationTests {
 		val items = listOf(Item("apple", 1))
 		val order = orderService.createOrder(items)
 		assertEquals(0.60, order.totalCost)
+	}
+	
+	@Test
+	fun 'test order with offers applied'() {
+		val items = listOf(Item("apple", 3), Item("orange", 4))
+		val order = orderService.createOrder(items)
+		assertEquals(1.70, order.totalCost)
 	}
 
 }
