@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 
 
 import com.amex_teksystems.demo.model.Item
-import com.amex_teksystems.demo.service.OrderServices
+import com.amex_teksystems.demo.services.OrderServices
 
 @SpringBootTest
 class DemoApplicationTests {
